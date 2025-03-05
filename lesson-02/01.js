@@ -20,6 +20,18 @@ let isAccess
 
 // your code
 
-if isAdmin {
+if (user === isAdmin) {
+    isAccess = true;
+}
 
+if (user === isVerifiedUser) {
+    isAccess = true;
+}
+
+if (user === hasSpecialPermission) {
+    isAccess = true;
+}
+
+if (user === hasTemporaryPass) {
+    isAccess = true;
 }
