@@ -11,21 +11,21 @@ let dice1 = Math.floor(math.random() * 6) +1 // your code
 let dice2 = Math.floor(math.random() * 6) +1 // your code
 let isWinningDouble = false // your code
 
-
-if (dice1 = dice2 && dice1 > 3) {
+/*
+if (dice1 = dice2 & dice1 > 3) {
     console.log('Не выигрышный дубль!')
     isWinningDouble = true;
 } else {
     console.log('Выигрышный дубль!')
 }
+ */
 
 
-/*
 console.log('Первый бросок: ' + dice1)
 console.log('Второй бросок: ' + dice2)
-if (isWinningDouble) {
+if (isWinningDouble = dice1 === dice2 && dice1 > 3) {
   console.log('Выигрышный дубль!')
-} else {
+    }
+else {
   console.log('Не выигрышный дубль.')
 }
-*/
