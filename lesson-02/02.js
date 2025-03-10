@@ -7,8 +7,8 @@
 * Для успешного прохождения тестов не меняйте названия переменных!
 */
 
-let dice1 = Math.floor(math.random() * 6) +1 // your code
-let dice2 = Math.floor(math.random() * 6) +1 // your code
+let dice1 = Math.floor(math.random() * 6) +1;
+let dice2 = Math.floor(math.random() * 6) +1;
 let isWinningDouble = dice1 === dice2 && dice1 > 3;
 
 console.log("dice1:", dice1);
