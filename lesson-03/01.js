@@ -1,8 +1,16 @@
-// Напишите функцию calculateAverage, которая принимает 2 числа и возвращает их среднее арифметическое
+// Напишите функцию calculateAverage, которая принимает 2 числа
+// и возвращает их среднее арифметическое
 
-prompt(number1);
-prompt(number2);
+
 
 function calculateAverage(number1, number2) {
-   alert (number1 + number2);
+   if  (typeof number1 !== "number" || typeof number2 !== "number") {
+      return Nan;
 }
+else
+   {
+      return (number1 + number2) / 2;
+   }
+}
+
+   console.log(calculateAverage);
