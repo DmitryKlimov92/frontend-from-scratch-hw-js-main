@@ -17,10 +17,7 @@
 Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
 
-function findUniqueElements() {}
-
-
-function includesElement(arr) {
+function findincludesElement(arr) {
     const uniqueArr = [];
     for (let i = 0; i < arr.length; i++) {
         let a = arr[i];
@@ -31,4 +28,4 @@ function includesElement(arr) {
     return uniqueArr;
 }
 
-console.log(includesElement ([1, 2, 3, 2, 1, 4]) );
+console.log(findincludesElement ([1,2,3,4,5,6,7,7,8,8]) );
