@@ -43,6 +43,12 @@ const gallery = {
 function updateGallery() {}
  */
 
-function updateGallery(gallery, artwork, value) {
-  gallery[artwork] = value;
+const gallery = {
+  'Mona Lisa': 'Leonardo da Vinci',
+  'Starry Night': 'Vincent van Gogh',
+  'The Scream': 'Edvard Munch',
+}
+
+function updateGallery(gallery, artwork, newValue) {
+  gallery[artwork] = newValue;
 }
