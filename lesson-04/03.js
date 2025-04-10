@@ -21,7 +21,7 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 
 function findCommonElements() {}
 
-function includesElement(arr, element) {
+function findCommonElements(arr, arr) {
     for (let i = 0; i < arr.length; i++) {
         let a = arr[i];
         if (a === element) {
@@ -30,5 +30,5 @@ function includesElement(arr, element) {
     }
     return false;
 }
-
-console.log(includesElement ([1,2,3,4], 2) );
+вц
+console.log(findCommonElements ([1,2,3,4], [1,2,3,4,5] );
