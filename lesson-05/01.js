@@ -20,14 +20,21 @@ const game = {
     lumber: 100,
   },
 
+  // Исправлено: заменяем 'gold' на правильные параметры
   addResource(resource, amount) {
-    // Проверяем, существует ли такой ресурс
-    if (!this.resources.hasOwnProperty(resource)) {
+    // 1. Проверяем существование ресурса
+    if (!(resource in this.resources)) {
       console.log("Invalid resource");
-      return; // Выходим из метода, если ресурс не существует
+      return;
     }
 
-    // Добавляем указанное количество к ресурсу
+    // 2. Проверяем, что amount - число
+    if (typeof amount !== 'number') {
+      console.log("Amount must be a number");
+      return;
+    }
+
+    // 3. Добавляем ресурс
     this.resources[resource] += amount;
   }
 };

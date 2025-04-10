@@ -31,10 +31,18 @@ console.log(gallery)
 }
 */
 
+/*
+
 const gallery = {
   'Mona Lisa': 'Leonardo da Vinci',
   'Starry Night': 'Vincent van Gogh',
   'The Scream': 'Edvard Munch',
 }
 
+
 function updateGallery() {}
+ */
+
+function updateGallery(gallery, artwork, value) {
+  gallery[artwork] = value;
+}
