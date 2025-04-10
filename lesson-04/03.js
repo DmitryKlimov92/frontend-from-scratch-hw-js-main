@@ -30,5 +30,5 @@ function findCommonElements(arr, arr) {
     }
     return false;
 }
-вц
+
 console.log(findCommonElements ([1,2,3,4], [1,2,3,4,5] );

@@ -13,51 +13,37 @@
 к текущему количеству этого ресурса в объекте.
 */
 
-
 const game = {
   resources: {
     gold: 250,
-    lumber: 100,
+    lumber: 100
   },
-
-  // Исправлено: заменяем 'gold' на правильные параметры
-  addResource(resource, amount) {
-    // 1. Проверяем существование ресурса
-    if (!(resource in this.resources)) {
+  addResource: function(resource, amount) {
+    // 1. Проверяем, есть ли ресурс в game.resources
+    if (this.resources.hasOwnProperty(resource)) {
+      // 2. Если есть — добавляем amount
+      this.resources[resource] += amount;
+    } else {
+      // 3. Если нет — выводим ошибку
       console.log("Invalid resource");
-      return;
     }
-
-    // 2. Проверяем, что amount - число
-    if (typeof amount !== 'number') {
-      console.log("Amount must be a number");
-      return;
-    }
-
-    // 3. Добавляем ресурс
-    this.resources[resource] += amount;
   }
 };
 
-// Добавляем 50 к золоту
-game.addResource('gold', 50);
-console.log(game.resources.gold); // 300 (250 + 50)
+game.addResource("gold", 50);    // gold станет 250 + 50 = 300
+game.addResource("lumber", 20);  // lumber станет 100 + 20 = 120
+game.addResource("stone", 30);   // Выведет "Invalid resource" (нет такого ресурса)
 
-// Пытаемся добавить несуществующий ресурс
-game.addResource('stone', 30); // В консоли: "Invalid resource"
-
-// Добавляем 20 к дереву
-game.addResource('lumber', 20);
-console.log(game.resources.lumber); // 120 (100 + 20)
+console.log(game.resources); // { gold: 300, lumber: 120 }
 
 
-
-/*const game = {
+/*
+const game = {
   resources: {
     gold: 250,
-    lumber: 100,
+    lumber: 100
   },
   addResource(gold) {}
 }
 
- */
+*/
