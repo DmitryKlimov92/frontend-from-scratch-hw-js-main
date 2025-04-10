@@ -27,12 +27,6 @@ const game = {
   }
 };
 
-game.addResource("gold", 50);    // gold станет 250 + 50 = 300
-game.addResource("lumber", 20);  // lumber станет 100 + 20 = 120
-game.addResource("stone", 30);   // Выведет "Invalid resource" (нет такого ресурса)
-
-console.log(game.resources); // { gold: 300, lumber: 120 }
-
 
 /*
 const game = {
