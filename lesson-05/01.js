@@ -16,13 +16,12 @@
 
 const game = {
   resources: {
-    gold: 100,
-    lumber: 50,
-    stone: 30
+    gold: 250,
+    lumber: 100,
   },
 
   addResource(resource, amount) {
-    // Проверяем существование ресурса
+    // Проверяем, существует ли такой ресурс
     if (!this.resources.hasOwnProperty(resource)) {
       console.log("Invalid resource");
       return; // Выходим из метода, если ресурс не существует
@@ -32,6 +31,17 @@ const game = {
     this.resources[resource] += amount;
   }
 };
+
+// Добавляем 50 к золоту
+game.addResource('gold', 50);
+console.log(game.resources.gold); // 300 (250 + 50)
+
+// Пытаемся добавить несуществующий ресурс
+game.addResource('stone', 30); // В консоли: "Invalid resource"
+
+// Добавляем 20 к дереву
+game.addResource('lumber', 20);
+console.log(game.resources.lumber); // 120 (100 + 20)
 
 
 
