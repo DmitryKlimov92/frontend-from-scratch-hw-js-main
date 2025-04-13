@@ -25,6 +25,12 @@ const game = {
             return;
         }
 
+        // Проверяем, что amount — это число
+        if (typeof amount !== 'number') {
+            console.log("Amount must be a number");
+            return;
+        }
+
         // Добавляем указанное количество ресурсов
         this.resources[resource] += amount;
         console.log(`Added ${amount} ${resource}. New total: ${this.resources[resource]}`);
@@ -35,6 +41,7 @@ const game = {
 game.addResource('gold', 50);  // Добавит 50 золота
 game.addResource('lumber', 20); // Добавит 20 древесины
 game.addResource('stone', 10);  // Выведет "Invalid resource"
+game.addResource('gold', "10"); // Выведет "Amount must be a number"
 
 
 
