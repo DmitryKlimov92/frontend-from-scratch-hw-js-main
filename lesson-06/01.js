@@ -22,29 +22,25 @@ const WEB_TECH_IMAGES = [
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/784380b9-6937-42a6-bdfe-869835820234_html-magic-logo.jpg',
 ]
 
-// Получаем элементы DOM
-const sliderImage = document.querySelector('#lesson6 img');
-const prevBtn = document.querySelector('#lesson6 .prev');
-const nextBtn = document.querySelector('#lesson6 .next');
+let currentIndex = 0;
 
-let currentImageIndex = 0;
+document.getElementById('prev-button').addEventListener('click', showPrevImage);
+document.getElementById('next-button').addEventListener('click', showNextImage);
 
-// Устанавливаем первое изображение при загрузке
-sliderImage.src = WEB_TECH_IMAGES[currentImageIndex];
-
-// Функция для обновления изображения
-function updateImage() {
-  sliderImage.src = WEB_TECH_IMAGES[currentImageIndex];
+function showNextImage() {
+  currentIndex = (currentIndex + 1) % WEB_TECH_IMAGES.length;
+  updateImage();
 }
 
-// Обработчик для кнопки "next"
-nextBtn.addEventListener('click', () => {
-  currentImageIndex = (currentImageIndex + 1) % WEB_TECH_IMAGES.length;
+function showPrevImage() {
+  currentIndex = (currentIndex - 1 + WEB_TECH_IMAGES.length) % WEB_TECH_IMAGES.length;
   updateImage();
-});
+}
 
-// Обработчик для кнопки "prev"
-prevBtn.addEventListener('click', () => {
-  currentImageIndex = (currentImageIndex - 1 + WEB_TECH_IMAGES.length) % WEB_TECH_IMAGES.length;
-  updateImage();
-});
+function updateImage() {
+  const imgElement = document.getElementById('web-tech-image');
+  imgElement.src = WEB_TECH_IMAGES[currentIndex];
+}
+
+
+updateImage();
