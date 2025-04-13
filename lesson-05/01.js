@@ -13,6 +13,8 @@
 к текущему количеству этого ресурса в объекте.
 */
 
+/*
+
 const game = {
   resources: {
     gold: 250,
@@ -23,11 +25,38 @@ const game = {
       console.log("Invalid resource");
       return;
     }
-    else {
     this.resources[resource] += amount;
-    }
+
   }
 };
+
+*/
+
+const game = {
+  resources: {
+    gold: 250,
+    lumber: 100
+  },
+
+  addResource(resource, amount) {
+    // 1. Проверяем существование ресурса
+    if (!this.resources.hasOwnProperty(resource)) {
+      console.log("Invalid resource");
+      return; // Прекращаем выполнение, если ресурса нет
+    }
+
+    // 2. Проверяем, что amount - число
+    if (typeof amount !== 'number' || isNaN(amount)) {
+      console.log("Amount must be a valid number");
+      return;
+    }
+
+    // 3. Добавляем количество к ресурсу
+    this.resources[resource] += amount;
+  }
+};
+
+
 
 
 /*
