@@ -38,20 +38,16 @@ const game = {
     lumber: 100
   },
 
+  // Параметры должны быть уникальными!
   addResource(resource, amount) {
-    // 1. Проверяем существование ресурса
     if (!this.resources.hasOwnProperty(resource)) {
       console.log("Invalid resource");
-      return; // Прекращаем выполнение, если ресурса нет
-    }
-
-    // 2. Проверяем, что amount - число
-    if (typeof amount !== 'number' || isNaN(amount)) {
-      console.log("Amount must be a valid number");
       return;
     }
-
-    // 3. Добавляем количество к ресурсу
+    if (typeof amount !== 'number' || isNaN(amount)) {
+      console.log("Amount must be a number");
+      return;
+    }
     this.resources[resource] += amount;
   }
 };
