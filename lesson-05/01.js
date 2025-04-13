@@ -12,6 +12,41 @@
 3. Если ресурс существует, метод должен добавлять значение `amount` к текущему количеству этого ресурса в объекте.
 */
 
+
+const game = {
+    resources: {
+        gold: 250,
+        lumber: 100,
+    },
+    addResource(resource, amount) {
+        // Проверяем, существует ли ресурс
+        if (!(resource in this.resources)) {
+            console.log("Invalid resource");
+            return;
+        }
+
+        // Добавляем указанное количество ресурсов
+        this.resources[resource] += amount;
+        console.log(`Added ${amount} ${resource}. New total: ${this.resources[resource]}`);
+    }
+};
+
+// Пример использования:
+game.addResource('gold', 50);  // Добавит 50 золота
+game.addResource('lumber', 20); // Добавит 20 древесины
+game.addResource('stone', 10);  // Выведет "Invalid resource"
+
+
+
+
+
+
+
+
+/*
+
+Это начальные данные, остальное можно удалять, кроме текста задания!
+
 const game = {
     resources: {
         gold: 250,
@@ -19,3 +54,5 @@ const game = {
     },
     addResource() {}
 }
+
+ */
