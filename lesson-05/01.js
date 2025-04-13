@@ -23,7 +23,9 @@ const game = {
       console.log("Invalid resource");
       return;
     }
+    else {
     this.resources[resource] += amount;
+    }
   }
 };
 
