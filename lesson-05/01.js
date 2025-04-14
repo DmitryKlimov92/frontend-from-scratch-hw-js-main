@@ -17,18 +17,26 @@ const game = {
         gold: 250,
         lumber: 100,
     },
-    addResource(resource, valueToAdd) {
-        if(this.resources.hasOwnProperty(resourceName)) {
-            this.resources[resourceName] += valueToAdd;
+    addResource(resource, amount) {  // Исправлены имена параметров
+        // Проверяем, что amount - число
+        if (typeof amount !== 'number' || isNaN(amount)) {
+            console.log("Amount must be a number");
+            return;
         }
-        else {
+
+        // Проверяем существование ресурса
+        if (this.resources.hasOwnProperty(resource)) {  // Исправлено this.resources
+            this.resources[resource] += amount;  // Исправлено имя параметра
+        } else {
             console.log("Invalid resource");
         }
     }
-}
+};
 
 
-
+game.addResource('gold', 50);  // gold станет 300
+game.addResource('stone', 30); // "Invalid resource"
+game.addResource('lumber', '20'); // "Amount must be a number"
 
 
 
