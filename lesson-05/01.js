@@ -18,7 +18,7 @@ const game = {
         lumber: 100,
     },
     addResource(resource, valueToAdd) {
-        if(this.resource.hasOwnProperty(resourceName)) {
+        if(this.resources.hasOwnProperty(resourceName)) {
             this.resources[resourceName] += valueToAdd;
         }
         else {
