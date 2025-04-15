@@ -29,17 +29,3 @@ const game = {
 game.addResource('gold', 199);
 game.addResource('stone', 10);
 console.log(game.resources);
-
-/*
-
-Это начальные данные, остальное можно удалять, кроме текста задания!
-
-const game = {
-    resources: {
-        gold: 250,
-        lumber: 100,
-    },
-    addResource() {}
-}
-
- */
