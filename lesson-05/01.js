@@ -17,7 +17,7 @@ const game = {
         gold: 250,
         lumber: 100,
     },
-    addResource(resource, amount) {
+    addResource(resource, amount)  {
         if (this.resources.hasOwnProperty(resource)) {
             this.resources[resource] += amount;
         } else {
@@ -25,7 +25,3 @@ const game = {
         }
     }
 }
-
-game.addResource('gold', 199);
-game.addResource('stone', 10);
-console.log(game.resources);
