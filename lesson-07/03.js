@@ -10,7 +10,7 @@
 */
 
 function truncate(str, maxLength) {
-// Проверяем на пустую строку или недопустимую длину
+    // Проверяем на пустую строку или недопустимую длину
     if (typeof str !== 'string' || str.length === 0 || maxLength < 1) {
         return '';
     }
@@ -20,23 +20,16 @@ function truncate(str, maxLength) {
         return str;
     }
 
-    // Для случаев, когда maxLength ≤ 3, возвращаем соответствующее количество точек
-    if (maxLength <= 3) {
-        return '.'.repeat(maxLength);
-    }
-
-    // Обрезаем строку, оставляя место для многоточия (3 символа)
-    return str.slice(0, maxLength - 3) + '...';
-
-  // your code
+    // Обрезаем строку до maxLength символов и добавляем многоточие
+    return str.slice(0, maxLength) + '...';
 }
 
 // Тестовые случаи
 console.log(truncate("Вот, что мне действительно нравится в этом", 20));
-// "Вот, что мне действи..." (ровно 20 символов)
+// "Вот, что мне действительно..." (23 символа: 20 + 3 точки)
 
 console.log(truncate("Какая-то длинная строка", 10));
-// "Какая-то д..." (ровно 10 символов)
+// "Какая-то дл..." (13 символов: 10 + 3 точки)
 
 console.log(truncate("Короткая строка", 20));
 // "Короткая строка" (не обрезается)
@@ -47,8 +40,5 @@ console.log(truncate("Точная длина", 12));
 console.log(truncate("", 10));
 // "" (пустая строка)
 
-console.log(truncate("Строка", 3));
-// "..." (maxLength = 3)
-
-console.log(truncate("Строка", 2));
-// ".." (maxLength = 2)
+console.log(truncate("Строка", 6));
+// "Строка" (не обрезается)
