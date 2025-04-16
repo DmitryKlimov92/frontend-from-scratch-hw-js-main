@@ -4,11 +4,23 @@
  */
 
 function isNumeric(str) {
-  // your code
+    // Проверяем, что строка не пустая и не состоит из пробелов
+    if (typeof str !== 'string' || str.trim() === '') {
+        return false;
+    }
+
+    // Пробуем преобразовать строку в число
+    // Учитываем, что Number('') вернет 0, поэтому нужна проверка выше
+    return !isNaN(str) && !isNaN(parseFloat(str));
 }
 
-// console.log(isNumeric("123")) // Ожидаемый результат: true
-// console.log(isNumeric("12.3")) // Ожидаемый результат: true
-// console.log(isNumeric("123abc")) // Ожидаемый результат: false
-// console.log(isNumeric("abc")) // Ожидаемый результат: false
-// console.log(isNumeric(" ")) // Ожидаемый результат: false
+// Тесты
+console.log(isNumeric("123"));     // true
+console.log(isNumeric("12.3"));    // true
+console.log(isNumeric("-12.3"));   // true
+console.log(isNumeric("123abc"));  // false
+console.log(isNumeric("abc"));     // false
+console.log(isNumeric(" "));       // false
+console.log(isNumeric(""));        // false
+console.log(isNumeric("1.23e5"));  // true (экспоненциальная запись)
+console.log(isNumeric("0xFF"));    // true (шестнадцатеричное число)
