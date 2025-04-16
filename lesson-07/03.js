@@ -10,17 +10,25 @@
 */
 
 function truncate(str, maxLength) {
-    // Проверяем, что строка не превышает максимальную длину
-    if (str.length <= maxLength) {
-        return str;
+    // Если строка пустая или maxLength меньше 1, возвращаем пустую строку
+    if (!str || maxLength < 1) return '';
+
+    // Если длина строки меньше или равна максимальной, возвращаем строку
+    if (str.length <= maxLength) return str;
+
+    // Если нужно добавить многоточие и есть место для него (maxLength > 3)
+    if (maxLength > 3) {
+        return str.slice(0, maxLength - 3) + '...';
     }
 
-    // Обрезаем строку до maxLength - 3 (для многоточия) и добавляем "..."
-    return str.slice(0, maxLength - 3) + '...';
+    // Если maxLength ≤ 3, возвращаем просто многоточие нужной длины
+    return '.'.repeat(maxLength);
 }
 
 // Примеры использования
 console.log(truncate("Вот, что мне действительно нравится в этом", 20)); // "Вот, что мне действи..."
-console.log(truncate("Короткая строка", 20)); // "Короткая строка"
-console.log(truncate("Точнодлиннаястрока", 10)); // "Точнодли..."
-console.log(truncate("123456789", 5)); // "12..."
+console.log(truncate("Какая-то длинная строка", 10)); // "Какая-то д..."
+console.log(truncate("Короткая", 8)); // "Короткая"
+console.log(truncate("", 10)); // ""
+console.log(truncate("Три", 3)); // "Три"
+console.log(truncate("Два", 2)); // ".."
