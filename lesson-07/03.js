@@ -10,5 +10,17 @@
 */
 
 function truncate(str, maxLength) {
-  // your code
+    // Проверяем, что строка не превышает максимальную длину
+    if (str.length <= maxLength) {
+        return str;
+    }
+
+    // Обрезаем строку до maxLength - 3 (для многоточия) и добавляем "..."
+    return str.slice(0, maxLength - 3) + '...';
 }
+
+// Примеры использования
+console.log(truncate("Вот, что мне действительно нравится в этом", 20)); // "Вот, что мне действи..."
+console.log(truncate("Короткая строка", 20)); // "Короткая строка"
+console.log(truncate("Точнодлиннаястрока", 10)); // "Точнодли..."
+console.log(truncate("123456789", 5)); // "12..."
