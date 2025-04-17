@@ -19,6 +19,7 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
 
+// Объявляем функцию includesElement (как в условии)
 function includesElement(arr, element) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === element) {
@@ -28,19 +29,18 @@ function includesElement(arr, element) {
     return false;
 }
 
+// Основная функция findCommonElements
 function findCommonElements(array1, array2) {
-    const result = [];
-    for (const element of array1) {
-        if (includesElement(array2, element) && !includesElement(result, element)) {
-            result.push(element);
+    const common = [];
+    for (const el of array1) {
+        if (includesElement(array2, el) && !includesElement(common, el)) {
+            common.push(el);
         }
     }
-    return result;
+    return common;
 }
 
-// Тестовые случаи
-console.log(findCommonElements([1, 2, 3], [2, 3, 4]));  // [2, 3]
-console.log(findCommonElements([1, 2, 2, 3], [2, 3, 3, 4]));  // [2, 3] (без дубликатов)
-console.log(findCommonElements([1, 2, 3], [4, 5, 6]));  // []
-console.log(findCommonElements([1, 2, 3, 4], [3, 4]));  // [3, 4] (разная длина)
-console.log(findCommonElements(['a', 'b'], ['b', 'c']));  // ['b']
+// Экспортируем функцию для тестов (если требуется)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { findCommonElements, includesElement };
+}
