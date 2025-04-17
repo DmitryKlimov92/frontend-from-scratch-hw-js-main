@@ -19,25 +19,28 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
 
-function findCommonElements(array1, array2) {
-    const commonElements = [];
-
-    for (let i = 0; i < array1.length; i++) {
-        const currentElement = array1[i];
-
-        // Проверяем, есть ли текущий элемент первого массива во втором массиве
-        if (includesElement(array2, currentElement)) {
-            // Проверяем, нет ли уже этого элемента в результирующем массиве
-            if (!includesElement(commonElements, currentElement)) {
-                commonElements.push(currentElement);
-            }
+function includesElement(arr, element) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === element) {
+            return true;
         }
     }
-
-    return commonElements;
+    return false;
 }
 
-// Примеры использования:
-console.log(findCommonElements([1, 2, 3], [2, 3, 4])); // [2, 3]
-console.log(findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd'])); // ['b', 'c']
-console.log(findCommonElements([1, 2, 3], [4, 5, 6])); // []
+function findCommonElements(array1, array2) {
+    const result = [];
+    for (const element of array1) {
+        if (includesElement(array2, element) && !includesElement(result, element)) {
+            result.push(element);
+        }
+    }
+    return result;
+}
+
+// Тестовые случаи
+console.log(findCommonElements([1, 2, 3], [2, 3, 4]));  // [2, 3]
+console.log(findCommonElements([1, 2, 2, 3], [2, 3, 3, 4]));  // [2, 3] (без дубликатов)
+console.log(findCommonElements([1, 2, 3], [4, 5, 6]));  // []
+console.log(findCommonElements([1, 2, 3, 4], [3, 4]));  // [3, 4] (разная длина)
+console.log(findCommonElements(['a', 'b'], ['b', 'c']));  // ['b']
