@@ -19,14 +19,11 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
 
-function findCommonElements(arr) {
-    // for (let i = 0; i < arr.length; i++) {
-    //     let a = arr[i];
-    //     if (a === element) {
-    //         return true;
-    //     }
-    // }
-    // return false;
+function findCommonElements(array1, array2) {
+    return array1.filter(element => array2.includes(element));
 }
 
-console.log(findCommonElements ([1,2,3,4] ));
+// Пример использования:
+console.log(findCommonElements([1, 2, 3], [2, 3, 4])); // [2, 3]
+console.log(findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd'])); // ['b', 'c']
+console.log(findCommonElements([1, 2, 3], [4, 5, 6])); // []
